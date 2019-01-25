@@ -1,0 +1,33 @@
+<!DOCTYPE doctype html>
+<html>
+    <head>
+        <link href="https://vjs.zencdn.net/7.3.0/video-js.css" rel="stylesheet">
+            <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
+        <script src="https://vjs.zencdn.net/ie8/ie8-version/videojs-ie8.min.js"></script>
+
+    </head>
+    <body>
+        <!-- CSS  -->
+        <link href="https://vjs.zencdn.net/7.2.3/video-js.css" rel="stylesheet">
+            <!-- HTML -->
+            <video class="video-js vjs-default-skin" controls="" height="720" id="hls-example" width="1000">
+                <!--<source src="https://pull2b-i.akamaized.net/geoneox/bitrate_3.m3u8" type="application/x-mpegURL">
+                </source>-->
+                <source src="http://146.158.207.81:777/store/video/pelis/superdetective en hollywood 1 [www.newpct.com][toni32].mkv" type="video/mkv">
+                </source>
+            </video>
+            <!-- JS code -->
+            <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
+            <script src="https://vjs.zencdn.net/ie8/ie8-version/videojs-ie8.min.js">
+            </script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.14.1/videojs-contrib-hls.js">
+            </script>
+            <script src="https://vjs.zencdn.net/7.2.3/video.js">
+            </script>
+            <script>
+                var player = videojs('hls-example');
+player.play();
+            </script>
+        </link>
+    </body>
+</html>
