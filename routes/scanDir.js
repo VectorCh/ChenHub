@@ -5,7 +5,7 @@ var express = require( 'express' );
 var router = express.Router();
 router.get( '/', central );
 // router.get( '/category', getCategory );
-const ROUTE = "C:/Users/Yang Chen/Documents/Rep0/maintest/store/json/";
+const ROUTE = "E:/( asunto )/[ chenHub-produc ]/store/json";
 var ARR_CATEGORY = [];
 
 function central( req, res ) {
@@ -22,7 +22,7 @@ function central( req, res ) {
 function createFile( str_file, content ) {
 	console.log( `Writing in ${str_file}...` )
 	// Si existe el fichero lo sobreescribe - good
-	fs.writeFile( ROUTE + str_file, content, ( err ) => {
+	fs.writeFile( `${ROUTE}/${str_file}`, content, ( err ) => {
 		if ( err ) {
 			console.error( err );
 			return;
