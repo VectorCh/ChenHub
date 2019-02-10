@@ -1,10 +1,25 @@
+//Ruta del contenido (vidus)
+const VIDU_ROUTE = "E:\\( asunto )\\[ chenHub-produc ]\\store\\video";
+var IS_SHOW = false;
+( function() {
+	$( "#content" ).click( function(e) {
+		if ( IS_SHOW ) {
+			e.stopPropagation();
+			closeNav();
+		}
+	} );
+} )();
 /* Set the width of the side navigation to 250px */
 function openNav() {
 	document.getElementById( "mySidenav" ).style.width = "250px";
+	$( "#image-logo" ).addClass( "proto_content" ); // Creamos área
+	IS_SHOW = true;
 }
 /* Set the width of the side navigation to 0 */
 function closeNav() {
+	$( "#image-logo" ).removeClass( "proto_content" );
 	document.getElementById( "mySidenav" ).style.width = "0";
+	IS_SHOW = false;
 }
 
 function getFolder() {
@@ -23,19 +38,19 @@ function getFolder() {
 		}
 	} ).fail( function( jqXHR, textStatus, errorThrown ) {
 		if ( console && console.log ) {
-			console.log( `La solicitud a fallado: ${textStatus}`);
+			console.log( `La solicitud a fallado: ${textStatus}` );
 		}
 	} );
 }
 
 function scanner() {
 	$.ajax( {
-		url: "http://146.158.207.81:777/scan?dir=C:\\Users\\Yang Chen\\Documents\\Rep0\\maintest\\store\\video",
+		url: `http://146.158.207.81:777/scan?dir=${VIDU_ROUTE}`,
 	} ).done( function( data, textStatus, jqXHR ) {
-		console.log("Scanned")
+		location.reload();
 	} ).fail( function( jqXHR, textStatus, errorThrown ) {
 		if ( console && console.log ) {
-			console.log( `La solicitud a fallado: ${textStatus}`);
+			console.log( `La solicitud a fallado: ${textStatus}` );
 		}
 	} );
 }
