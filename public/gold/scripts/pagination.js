@@ -45,8 +45,8 @@ $( window ).on( 'resize scroll', function() {
 	if ( $( "#load-cont" ).isInViewport() ) { //load new content
 		// 	1. Check last element loaded
 		let lastElement = number_elements( document.getElementById( 'content' ), false );
-		// 	2. Load new content (last_element + 3)
-		render_beta( lastElement, 12 );
+		// 	2. Load new content (last_element, + numberNewContent)
+		render_beta( lastElement, 30 );
 		// [✓] TODO: search more (using semaphore)
 		// sleep( 600 );
 	} else {
