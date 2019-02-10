@@ -6,7 +6,7 @@ var IS_RUNNING = false; // semaphore
 	/**
 	 * Function back to top
 	 */
-	render_beta( 0, 8 );
+	render_beta( 0, 20 );
 	$( window ).scroll( function() {
 		if ( $( this ).scrollTop() > 50 ) {
 			$( '#back-to-top' ).fadeIn();
@@ -73,6 +73,27 @@ function render_beta( lastElement, quantity ) {
 	} );
 }
 
+function renderAll( lastElement, quantity ) {
+	let isLastElement = false;
+	$( "#load-cont" ).removeClass( "none" );
+	$( ".b-load" ).remove();
+	$.ajax( {
+		url: "/store/json/central_vidus.json",
+		success: function( data ) {
+			object = data;
+			let files = object.file;
+			N_FILE = files.length; // numero total de ficheros
+			let all_element_last = files.length - 1;
+			var i = 0;
+			for ( i = lastElement; i < ( lastElement + quantity ) && ( i < N_FILE ); i++ ) {
+				if ( i == ( ( lastElement + quantity ) - 1 ) ) isLastElement = true;
+				show_content( files[ i ], isLastElement );
+			}
+			if ( i == N_FILE ) $( "#load-cont" ).addClass( "none" )
+		}
+	} );
+}
+
 function show_content( object, status ) {
 	let isLastElement = status;
 	let title = object.file;
@@ -89,7 +110,7 @@ function show_content( object, status ) {
 	/* TODO dinamic variable */
 	let screen = `/store/screen/${array_rute[ last ]}.jpg`;
 	$( "#content" ).append( `
-		<div class="post col-xl-4 col-lg-6 col-md-6 col-sm-12 post-content">
+		<div class="post col-xl-4 col-md-6 col-sm-12 post-content">
 			<div data-toggle="modal" data-target=".modales" class="image-content">
 				<img src="${screen}" onclick="addVideoModal('${file}');">
 				<span class="top-left">${title}</span>
