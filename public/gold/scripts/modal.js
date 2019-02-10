@@ -4,7 +4,7 @@
      */
     $( '#mod' ).on( 'shown.bs.modal', function() {
         $( '#crude' )[ 0 ].play();
-        $( '#crude' )[ 0 ].volume = 0.2;
+        $( '#crude' )[ 0 ].volume = 0.1;
     } )
     $( '#mod' ).on( 'hide.bs.modal', function() {
         $( '#crude' )[ 0 ].pause();
@@ -14,6 +14,7 @@
 /**
  * Add content modal
  * @param rute of file
+ * TODO: comprobamos que si es el mismo seleccionado no lo tocamos
  */
 function addVideoModal( str ) {
     $( ".v_modal" ).remove(); // Borramos el contenido que había antes
